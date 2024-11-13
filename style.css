@@ -1,0 +1,24 @@
+/*
+Theme Name: Tea House
+Theme URI: https://htmlcodex.com/tea-shop-website-template
+Author: the WordPress team
+Author URI: https://softuni.bg
+Description:  This is first Wordpress Theme
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: https://htmlcodex.com/license (or read the LICENSE.txt file)
+Text Domain: softuni
+Tags: 
+*/
+
+
+/*custom css*/
+
+#navbarCollapse-ul {
+    position: relative;
+  display: flex;
+  flex-wrap: wrap; /*allow us to do the line break for collapsing content*/ 
+  align-items: center;
+  justify-content: space-between; /*space out brand from logo*/ 
+ 
+}
