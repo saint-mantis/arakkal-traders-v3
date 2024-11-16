@@ -531,29 +531,30 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h3 class="mb-4">Need Assistance? &nbsp; Write to Us</h3>
                     <p class="mb-4" hidden>The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
+                   
+                    <form method="post" action="https://script.google.com/macros/s/AKfycbzkTZRQOQEUYG2hrZsKauGG7NPyGRbF8DsivsNoLrJJPQtbJ7j4s5uvA0uet1ccspR2/exec" name="CustomerEnquiryForm">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" name="First_LastName">
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" name="Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" name="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px" name="Message"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
@@ -665,6 +666,21 @@
       element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzkTZRQOQEUYG2hrZsKauGG7NPyGRbF8DsivsNoLrJJPQtbJ7j4s5uvA0uet1ccspR2/exec"
+
+
+const form = document.forms['CustomerEnquiryForm']
+
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you, your enquiry is submitted successfully." ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
+
     </script>
 </body>
 
